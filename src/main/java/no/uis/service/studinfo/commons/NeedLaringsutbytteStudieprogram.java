@@ -23,8 +23,16 @@ import no.uis.service.studinfo.data.Studieprogram;
  */
 public class NeedLaringsutbytteStudieprogram implements StudinfoFilter<Studieprogram> {
 
+  private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(NeedLaringsutbytteEmne.class);
+
   @Override
   public boolean accept(Studieprogram prog) {
-    return prog.isSetLaringsutbytte();
+    if(prog.isSetLaringsutbytte()) {
+      return true;
+    }
+    if (LOG.isInfoEnabled()) {
+      LOG.info("Skipping \""+prog.getStudieprogramkode()+"\" due to missing learning outcome");
+    }
+    return false;
   }
 }

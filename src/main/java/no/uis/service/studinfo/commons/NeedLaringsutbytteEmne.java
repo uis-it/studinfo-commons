@@ -23,8 +23,17 @@ import no.uis.service.studinfo.data.Emne;
  */
 public class NeedLaringsutbytteEmne implements StudinfoFilter<Emne> {
 
+  private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(NeedLaringsutbytteEmne.class);
+  
   @Override
   public boolean accept(Emne emne) {
-    return emne.isSetLaringsutbytte();
+    if (emne.isSetLaringsutbytte()) {
+      return true;
+    }
+    if (LOG.isInfoEnabled()) {
+      String emneid = Utils.formatTokens(emne.getEmneid().getEmnekode(), emne.getEmneid().getVersjonskode());
+      LOG.info("Skipping \""+emneid+"\" due to missing learning outcome");
+    }
+    return false;
   }
 }
