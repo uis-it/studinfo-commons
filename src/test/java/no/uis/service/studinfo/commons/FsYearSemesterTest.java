@@ -18,9 +18,9 @@ package no.uis.service.studinfo.commons;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
-import no.uis.service.studinfo.commons.Studinfos;
-import no.uis.service.studinfo.data.FsSemester;
-import no.uis.service.studinfo.data.FsYearSemester;
+import no.uis.fsws.studinfo.data.FsSemester;
+import no.uis.fsws.studinfo.data.FsYearSemester;
+import no.uis.studinfo.commons.Studinfos;
 
 import org.junit.Rule;
 import org.junit.Test;

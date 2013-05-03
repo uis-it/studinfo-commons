@@ -14,17 +14,18 @@
    limitations under the License.
  */
 
-package no.uis.service.studinfo.convert;
+package no.uis.studinfo.convert;
 
-import no.uis.service.studinfo.data.Kravalternativ;
+import java.util.Map;
 
 /**
- * Converts a {@link Kravalternativ} to a string.
+ * Converts a Map to a string.
+ * Internally the StringConverterUtil is used on the map's entry set. 
  */
-public class KravalternativConverter extends AbstractStringConverter<Kravalternativ> {
+public class MapConverter extends AbstractStringConverter<Map<?, ?>> {
 
   @Override
-  protected String convert(Kravalternativ value) {
-    return value.getContent();
+  protected String convert(Map<?, ?> value) {
+    return StringConverterUtil.convert(value.entrySet());
   }
 }

@@ -14,18 +14,27 @@
    limitations under the License.
  */
 
-package no.uis.service.studinfo.commons;
+package no.uis.studinfo.convert;
 
-import no.uis.service.studinfo.data.Emne;
+import no.uis.fsws.studinfo.data.Sted;
 
 /**
- * Studinfo filter for subjects that accepts erything.
+ * Convert a {@link Sted} to a string.
  */
-public class AcceptAllEmne implements StudinfoFilter<Emne> {
+public class StedConverter extends AbstractStringConverter<Sted> {
 
   @Override
-  public boolean accept(Emne elem) {
-    return true;
+  protected String convert(Sted value) {
+    StringBuilder sb = new StringBuilder();
+    if (value.getAvdnavn() != null) {
+      sb.append(value.getAvdnavn());
+    }
+    if (value.getNavn() != null) {
+      if (sb.length() > 0) {
+        sb.append(", "); //$NON-NLS-1$
+      }
+      sb.append(value.getNavn());
+    }
+    return sb.toString();
   }
-
 }

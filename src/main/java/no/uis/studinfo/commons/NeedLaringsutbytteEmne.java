@@ -14,24 +14,25 @@
    limitations under the License.
  */
 
-package no.uis.service.studinfo.commons;
+package no.uis.studinfo.commons;
 
-import no.uis.service.studinfo.data.Studieprogram;
+import no.uis.fsws.studinfo.data.Emne;
 
 /**
- * Filter that accepts only study programs with learning outcomes ('l&aelig;ringsutbytte'). 
+ * Filter that accepts only subjects with learning outcomes ('l&aelig;ringsutbytte'). 
  */
-public class NeedLaringsutbytteStudieprogram implements StudinfoFilter<Studieprogram> {
+public class NeedLaringsutbytteEmne implements StudinfoFilter<Emne> {
 
   private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(NeedLaringsutbytteEmne.class);
-
+  
   @Override
-  public boolean accept(Studieprogram prog) {
-    if(prog.isSetLaringsutbytte()) {
+  public boolean accept(Emne emne) {
+    if (emne.isSetLaringsutbytte()) {
       return true;
     }
     if (LOG.isInfoEnabled()) {
-      LOG.info("Skipping \""+prog.getStudieprogramkode()+"\" due to missing learning outcome");
+      String emneid = Utils.formatTokens(emne.getEmneid().getEmnekode(), emne.getEmneid().getVersjonskode());
+      LOG.info("Skipping \""+emneid+"\" due to missing learning outcome");
     }
     return false;
   }

@@ -14,9 +14,9 @@
    limitations under the License.
  */
 
-package no.uis.service.studinfo.convert;
+package no.uis.studinfo.convert;
 
-import no.uis.service.studinfo.data.Vurdenhet;
+import no.uis.fsws.studinfo.data.Vurdenhet;
 
 /**
  * Converts a {@link Vurdenhet} to a string.

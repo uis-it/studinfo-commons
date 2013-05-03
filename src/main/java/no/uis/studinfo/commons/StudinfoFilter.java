@@ -14,17 +14,15 @@
    limitations under the License.
  */
 
-package no.uis.service.studinfo.convert;
-
-import no.uis.service.studinfo.data.Obligoppgave;
+package no.uis.studinfo.commons;
 
 /**
- * Converts a {@link Obligoppgave} to a string.
+ * Interface intended to remove subjects and programs from the result set.
+ * E.g. PDF files should only be created for study programs with learning outcome ('l&aelig;ringsutbytte'). 
+ * 
+ * @param <T>
+ *   - type of the element that should be checked
  */
-public class ObligoppgaveConverter extends AbstractStringConverter<Obligoppgave> {
-
-  @Override
-  protected String convert(Obligoppgave value) {
-    return value.getValue();
-  }
+public interface StudinfoFilter<T> {
+  boolean accept(T elem);
 }

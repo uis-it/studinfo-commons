@@ -14,9 +14,9 @@
    limitations under the License.
  */
 
-package no.uis.service.studinfo.commons;
+package no.uis.studinfo.commons;
 
-import no.uis.service.studinfo.data.FsYearSemester;
+import no.uis.fsws.studinfo.data.FsYearSemester;
 
 public class StudinfoContext {
   private final FsYearSemester currentSemester;

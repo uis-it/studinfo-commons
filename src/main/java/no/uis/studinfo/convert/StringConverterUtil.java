@@ -14,7 +14,7 @@
    limitations under the License.
  */
 
-package no.uis.service.studinfo.convert;
+package no.uis.studinfo.convert;
 
 import java.util.HashMap;
 import java.util.Map;

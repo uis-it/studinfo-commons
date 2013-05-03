@@ -14,27 +14,24 @@
    limitations under the License.
  */
 
-package no.uis.service.studinfo.convert;
-
-import no.uis.service.studinfo.data.Sted;
+package no.uis.studinfo.convert;
 
 /**
- * Convert a {@link Sted} to a string.
+ * Abstract strong-typed string converter.
+ * Concrete string converters should sub-class this class. 
+ * @param <T>
+ *        - type that needs to be converted to a {@link String}. 
  */
-public class StedConverter extends AbstractStringConverter<Sted> {
+public abstract class AbstractStringConverter<T> implements StringConverter {
 
+  @SuppressWarnings("unchecked")
   @Override
-  protected String convert(Sted value) {
-    StringBuilder sb = new StringBuilder();
-    if (value.getAvdnavn() != null) {
-      sb.append(value.getAvdnavn());
+  public String convertToString(Object value) {
+    if (value == null) {
+      return null;
     }
-    if (value.getNavn() != null) {
-      if (sb.length() > 0) {
-        sb.append(", "); //$NON-NLS-1$
-      }
-      sb.append(value.getNavn());
-    }
-    return sb.toString();
+    return convert((T)value);
   }
+
+  protected abstract String convert(T value);
 }

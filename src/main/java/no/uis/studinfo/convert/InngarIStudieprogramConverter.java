@@ -14,18 +14,22 @@
    limitations under the License.
  */
 
-package no.uis.service.studinfo.convert;
+package no.uis.studinfo.convert;
 
-import java.util.Map;
+import no.uis.fsws.studinfo.data.InngarIStudieprogram;
 
 /**
- * Converts a Map to a string.
- * Internally the StringConverterUtil is used on the map's entry set. 
+ * Converts a {@link InngarIStudieprogram} to a string.
  */
-public class MapConverter extends AbstractStringConverter<Map<?, ?>> {
+public class InngarIStudieprogramConverter extends AbstractStringConverter<InngarIStudieprogram> {
 
   @Override
-  protected String convert(Map<?, ?> value) {
-    return StringConverterUtil.convert(value.entrySet());
+  protected String convert(InngarIStudieprogram value) {
+    if (value.isSetStudieprogramnavn()) {
+      return value.getStudieprogramnavn();
+    }
+
+    return value.getStudieprogramkode();
   }
+
 }

@@ -14,13 +14,17 @@
    limitations under the License.
  */
 
-package no.uis.service.studinfo.convert;
+package no.uis.studinfo.convert;
+
+import no.uis.fsws.studinfo.data.Obligoppgave;
 
 /**
- * Interface for converting an object to a string.
- * Usually you sub-class {@link AbstractStringConverter}.
+ * Converts a {@link Obligoppgave} to a string.
  */
-public interface StringConverter {
+public class ObligoppgaveConverter extends AbstractStringConverter<Obligoppgave> {
 
-  String convertToString(Object value);
+  @Override
+  protected String convert(Obligoppgave value) {
+    return value.getValue();
+  }
 }

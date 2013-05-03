@@ -38,11 +38,11 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
-import no.uis.service.component.fsimport.StudInfoImport;
-import no.uis.service.component.fsimport.StudInfoImport.StudinfoType;
-import no.uis.service.studinfo.commons.Studinfos;
-import no.uis.service.studinfo.data.FsSemester;
-import no.usit.fsws.wsdl.studinfo.StudInfoService;
+import no.uis.fsws.studinfo.StudInfoImport;
+import no.uis.fsws.studinfo.StudInfoImport.StudinfoType;
+import no.uis.fsws.studinfo.data.FsSemester;
+import no.uis.studinfo.commons.Studinfos;
+import no.usit.fsws.studinfo.StudInfoService;
 
 import org.apache.cxf.helpers.IOUtils;
 import org.springframework.beans.factory.BeanFactory;

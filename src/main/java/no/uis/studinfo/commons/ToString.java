@@ -1,4 +1,4 @@
-package no.uis.service.studinfo.commons;
+package no.uis.studinfo.commons;
 
 public interface ToString {
   String toString(Object o);

@@ -19,9 +19,9 @@ package no.uis.service.studinfo.commons;
 import java.util.LinkedList;
 import java.util.List;
 
-import no.uis.service.component.fsimport.StudInfoImport.StudinfoType;
-import no.uis.service.component.fsimport.util.ContextPath;
-import no.uis.service.studinfo.data.FsSemester;
+import no.uis.fsws.studinfo.StudInfoImport.StudinfoType;
+import no.uis.fsws.studinfo.data.FsSemester;
+import no.uis.fsws.studinfo.util.ContextPath;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.ErrorHandler;

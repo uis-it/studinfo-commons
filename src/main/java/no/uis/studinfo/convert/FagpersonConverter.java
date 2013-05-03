@@ -14,25 +14,25 @@
    limitations under the License.
  */
 
-package no.uis.service.studinfo.convert;
+package no.uis.studinfo.convert;
 
-import java.util.Collection;
+import no.uis.fsws.studinfo.data.Fagperson;
 
 /**
- * Converts a {@link Collection} to a comma-separated list of elements.
- * The elements are converted by the one registered for the type of each element.
+ * Converts a {@link Fagperson} to a String.
+ * The result has the form <code><i>firstName</i> <i>lastName</i> (<i>role</i>)</code>.
  */
-public class CollectionConverter extends AbstractStringConverter<Collection<?>> {
+public class FagpersonConverter extends AbstractStringConverter<Fagperson> {
 
   @Override
-  protected String convert(Collection<?> value) {
+  protected String convert(Fagperson value) {
     StringBuilder sb = new StringBuilder();
-    for (Object object : value) {
-      if (sb.length() > 0) {
-        sb.append(", ");
-      }
-      sb.append(StringConverterUtil.convert(object));
-    }
+    sb.append(value.getPersonnavn().getFornavn());
+    sb.append(' ');
+    sb.append(value.getPersonnavn().getEtternavn());
+    sb.append(" ("); //$NON-NLS-1$
+    sb.append(value.getPersonrolle());
+    sb.append(')');
     return sb.toString();
   }
 

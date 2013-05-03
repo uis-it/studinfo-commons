@@ -14,22 +14,25 @@
    limitations under the License.
  */
 
-package no.uis.service.studinfo.convert;
+package no.uis.studinfo.convert;
 
-import no.uis.service.studinfo.data.InngarIStudieprogram;
+import no.uis.fsws.studinfo.data.Semesterperiode;
 
 /**
- * Converts a {@link InngarIStudieprogram} to a string.
+ * Convert a {@link Semesterperiode} to a string.
  */
-public class InngarIStudieprogramConverter extends AbstractStringConverter<InngarIStudieprogram> {
+public class SemesterperiodeConverter extends AbstractStringConverter<Semesterperiode> {
 
   @Override
-  protected String convert(InngarIStudieprogram value) {
-    if (value.isSetStudieprogramnavn()) {
-      return value.getStudieprogramnavn();
+  protected String convert(Semesterperiode value) {
+    StringBuilder sb = new StringBuilder();
+    if (value.isSetForstegang()) {
+      sb.append(value.getForstegang());
     }
-
-    return value.getStudieprogramkode();
+    sb.append('-');
+    if (value.isSetSistegang()) {
+      sb.append(value.getSistegang());
+    }
+    return sb.toString();
   }
-
 }

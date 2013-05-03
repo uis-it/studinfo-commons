@@ -14,7 +14,7 @@
    limitations under the License.
  */
 
-package no.uis.service.studinfo.commons;
+package no.uis.studinfo.commons;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,19 +23,19 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import no.uis.service.component.fsimport.util.ContextPath;
-import no.uis.service.studinfo.convert.StringConverterUtil;
-import no.uis.service.studinfo.data.Emne;
-import no.uis.service.studinfo.data.Emnekombinasjon;
-import no.uis.service.studinfo.data.FsSemester;
-import no.uis.service.studinfo.data.FsYearSemester;
-import no.uis.service.studinfo.data.KravSammensetting;
-import no.uis.service.studinfo.data.Obligoppgave;
-import no.uis.service.studinfo.data.ProgramEmne;
-import no.uis.service.studinfo.data.Studieprogram;
-import no.uis.service.studinfo.data.Utdanningsplan;
-import no.uis.service.studinfo.data.Vurdkombinasjon;
-import no.uis.service.studinfo.data.Vurdordning;
+import no.uis.fsws.studinfo.data.Emne;
+import no.uis.fsws.studinfo.data.Emnekombinasjon;
+import no.uis.fsws.studinfo.data.FsSemester;
+import no.uis.fsws.studinfo.data.FsYearSemester;
+import no.uis.fsws.studinfo.data.KravSammensetting;
+import no.uis.fsws.studinfo.data.Obligoppgave;
+import no.uis.fsws.studinfo.data.ProgramEmne;
+import no.uis.fsws.studinfo.data.Studieprogram;
+import no.uis.fsws.studinfo.data.Utdanningsplan;
+import no.uis.fsws.studinfo.data.Vurdkombinasjon;
+import no.uis.fsws.studinfo.data.Vurdordning;
+import no.uis.fsws.studinfo.util.ContextPath;
+import no.uis.studinfo.convert.StringConverterUtil;
 
 /**
  * Utility class for study info. 

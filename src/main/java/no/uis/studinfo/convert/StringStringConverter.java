@@ -14,24 +14,18 @@
    limitations under the License.
  */
 
-package no.uis.service.studinfo.convert;
+package no.uis.studinfo.convert;
+
+import java.util.regex.Pattern;
 
 /**
- * Abstract strong-typed string converter.
- * Concrete string converters should sub-class this class. 
- * @param <T>
- *        - type that needs to be converted to a {@link String}. 
+ * Removes all white spaces and replaces them with a single space. 
  */
-public abstract class AbstractStringConverter<T> implements StringConverter {
+public class StringStringConverter extends AbstractStringConverter<String> {
 
-  @SuppressWarnings("unchecked")
+  private Pattern pattern = Pattern.compile("\\s+"); //$NON-NLS-1$
   @Override
-  public String convertToString(Object value) {
-    if (value == null) {
-      return null;
-    }
-    return convert((T)value);
+  protected String convert(String value) {
+    return pattern.matcher(value).replaceAll(" "); //$NON-NLS-1$ 
   }
-
-  protected abstract String convert(T value);
 }

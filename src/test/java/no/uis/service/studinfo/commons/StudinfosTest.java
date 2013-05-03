@@ -27,13 +27,13 @@ import static org.junit.matchers.JUnitMatchers.hasItems;
 import java.io.InputStreamReader;
 import java.io.Reader;
 
-import no.uis.service.component.fsimport.impl.AbstractStudinfoImport;
-import no.uis.service.component.fsimport.impl.SkippingAmpersandParser;
-import no.uis.service.studinfo.commons.Studinfos;
-import no.uis.service.studinfo.data.FsSemester;
-import no.uis.service.studinfo.data.FsStudieinfo;
-import no.uis.service.studinfo.data.FsYearSemester;
-import no.uis.service.studinfo.data.Studieprogram;
+import no.uis.fsws.studinfo.data.FsSemester;
+import no.uis.fsws.studinfo.data.FsStudieinfo;
+import no.uis.fsws.studinfo.data.FsYearSemester;
+import no.uis.fsws.studinfo.data.Studieprogram;
+import no.uis.fsws.studinfo.impl.AbstractStudinfoImport;
+import no.uis.fsws.studinfo.impl.SkippingAmpersandParser;
+import no.uis.studinfo.commons.Studinfos;
 
 import org.junit.Before;
 import org.junit.Test;

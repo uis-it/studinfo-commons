@@ -14,18 +14,18 @@
    limitations under the License.
  */
 
-package no.uis.service.studinfo.convert;
+package no.uis.studinfo.commons;
 
-import java.util.regex.Pattern;
+import no.uis.fsws.studinfo.data.Emne;
 
 /**
- * Removes all white spaces and replaces them with a single space. 
+ * Studinfo filter for subjects that accepts erything.
  */
-public class StringStringConverter extends AbstractStringConverter<String> {
+public class AcceptAllEmne implements StudinfoFilter<Emne> {
 
-  private Pattern pattern = Pattern.compile("\\s+"); //$NON-NLS-1$
   @Override
-  protected String convert(String value) {
-    return pattern.matcher(value).replaceAll(" "); //$NON-NLS-1$ 
+  public boolean accept(Emne elem) {
+    return true;
   }
+
 }

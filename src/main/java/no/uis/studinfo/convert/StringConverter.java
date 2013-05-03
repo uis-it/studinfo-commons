@@ -14,24 +14,13 @@
    limitations under the License.
  */
 
-package no.uis.service.studinfo.convert;
-
-import no.uis.service.studinfo.data.Emneid;
+package no.uis.studinfo.convert;
 
 /**
- * Convert an {@link Emneid} to a String.
- * The result has the form: <code><i>emneCode</i>_<i>version</i></code>
+ * Interface for converting an object to a string.
+ * Usually you sub-class {@link AbstractStringConverter}.
  */
-public class EmneidConverter extends AbstractStringConverter<Emneid> {
+public interface StringConverter {
 
-  @Override
-  protected String convert(Emneid value) {
-    StringBuilder sb = new StringBuilder();
-    // sb.append(value.getInstitusjonsnr().toString());
-    // sb.append('_');
-    sb.append(value.getEmnekode());
-    sb.append('_');
-    sb.append(value.getVersjonskode());
-    return sb.toString();
-  }
+  String convertToString(Object value);
 }

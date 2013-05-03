@@ -14,25 +14,24 @@
    limitations under the License.
  */
 
-package no.uis.service.studinfo.convert;
+package no.uis.studinfo.convert;
 
-import no.uis.service.studinfo.data.Semesterperiode;
+import no.uis.fsws.studinfo.data.Emneid;
 
 /**
- * Convert a {@link Semesterperiode} to a string.
+ * Convert an {@link Emneid} to a String.
+ * The result has the form: <code><i>emneCode</i>_<i>version</i></code>
  */
-public class SemesterperiodeConverter extends AbstractStringConverter<Semesterperiode> {
+public class EmneidConverter extends AbstractStringConverter<Emneid> {
 
   @Override
-  protected String convert(Semesterperiode value) {
+  protected String convert(Emneid value) {
     StringBuilder sb = new StringBuilder();
-    if (value.isSetForstegang()) {
-      sb.append(value.getForstegang());
-    }
-    sb.append('-');
-    if (value.isSetSistegang()) {
-      sb.append(value.getSistegang());
-    }
+    // sb.append(value.getInstitusjonsnr().toString());
+    // sb.append('_');
+    sb.append(value.getEmnekode());
+    sb.append('_');
+    sb.append(value.getVersjonskode());
     return sb.toString();
   }
 }

@@ -14,15 +14,17 @@
    limitations under the License.
  */
 
-package no.uis.service.studinfo.commons;
+package no.uis.studinfo.convert;
+
+import no.uis.fsws.studinfo.data.Kravalternativ;
 
 /**
- * Interface intended to remove subjects and programs from the result set.
- * E.g. PDF files should only be created for study programs with learning outcome ('l&aelig;ringsutbytte'). 
- * 
- * @param <T>
- *   - type of the element that should be checked
+ * Converts a {@link Kravalternativ} to a string.
  */
-public interface StudinfoFilter<T> {
-  boolean accept(T elem);
+public class KravalternativConverter extends AbstractStringConverter<Kravalternativ> {
+
+  @Override
+  protected String convert(Kravalternativ value) {
+    return value.getContent();
+  }
 }

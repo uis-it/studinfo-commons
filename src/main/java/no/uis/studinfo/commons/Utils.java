@@ -1,4 +1,4 @@
-package no.uis.service.studinfo.commons;
+package no.uis.studinfo.commons;
 
 import java.util.ArrayList;
 import java.util.Collection;

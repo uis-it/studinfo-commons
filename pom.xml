@@ -2,27 +2,27 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>no.uis.service.component</groupId>
+  <groupId>no.uis.studinfo</groupId>
   <artifactId>studinfo-commons</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>component-studinfo-commons</name>
+  <name>Studinfo Commons</name>
   <description>Common classes for studinfo-solr and studinfo-pdf</description>
-  <url>http://source01.uis.no/maven-site/${project.groupId}/${project.artifactId}/${project.version}</url>
+  <url>http://forge.uis.no/projects/studinfo-commons</url>
 
   <parent>
     <artifactId>parent-pom</artifactId>
-    <groupId>no.uis.service</groupId>
-    <version>1.2.2</version>
+    <groupId>no.uis</groupId>
+    <version>2.0.3</version>
   </parent>
   
   <inceptionYear>2013</inceptionYear>
 
   <scm>
-    <connection>scm:git:git://source01.uis.no/soa-component-studinfo-commons.git</connection>
-    <developerConnection>scm:git:ssh://git@152.94.3.85/soa-component-studinfo-commons.git</developerConnection>
-    <url>http://source01.uis.no/git/?p=soa-component-studinfo-commons.git</url>
+    <connection>scm:git:git://forge.uis.no/studinfo/studinfo-commons.git</connection>
+    <developerConnection>scm:git:ssh://git@forge.uis.no/studinfo/studinfo-commons.git</developerConnection>
+    <url>http://forge.uis.no/projects/studinfo-commons/repository</url>
   </scm>
   
 
@@ -32,8 +32,8 @@
 
   <dependencies>
     <dependency>
-      <groupId>no.uis.service.component</groupId>
-      <artifactId>fs-import</artifactId>
+      <groupId>no.uis.fsws</groupId>
+      <artifactId>studinfo-import</artifactId>
       <version>2.0.0-SNAPSHOT</version>
     </dependency>
     <dependency>
@@ -43,4 +43,16 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
+  <profiles>
+    <profile>
+      <id>uis</id>
+      <distributionManagement>
+        <site>
+          <id>code01.uis.no</id>
+          <url>dav:https://code01.uis.no/maven-site/studinfo/studinfo-commons/</url>
+        </site>
+      </distributionManagement>
+    </profile>
+  </profiles>
 </project>
