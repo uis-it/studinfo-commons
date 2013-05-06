@@ -20,6 +20,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
+/**
+ * Collection of utility functions. 
+ * Bad habit :-(  
+ */
 public class Utils {
 
   private static final char ID_TOKEN_SEPARATOR = '_';

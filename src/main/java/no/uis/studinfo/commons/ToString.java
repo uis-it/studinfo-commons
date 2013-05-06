@@ -16,6 +16,9 @@
 
 package no.uis.studinfo.commons;
 
+/**
+ * Simple interface that facilitates conversion to string.
+ */
 public interface ToString {
   String toString(Object o);
 }

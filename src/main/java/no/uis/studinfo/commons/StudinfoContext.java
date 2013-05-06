@@ -18,6 +18,9 @@ package no.uis.studinfo.commons;
 
 import no.uis.fsws.studinfo.data.FsYearSemester;
 
+/**
+ * Store context for studinfo to allow listeners access to request parameters like semester, year and language.
+ */
 public class StudinfoContext {
   private final FsYearSemester currentSemester;
   
