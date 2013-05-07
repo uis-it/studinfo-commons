@@ -21,7 +21,7 @@
 
   <scm>
     <connection>scm:git:git://source01.uis.no/soa-component-studinfo-commons.git</connection>
-    <developerConnection>scm:git:ssh://git@ource01.uis.no/soa-component-studinfo-commons.git</developerConnection>
+    <developerConnection>scm:git:ssh://git@152.94.3.85/soa-component-studinfo-commons.git</developerConnection>
     <url>http://source01.uis.no/git/?p=soa-component-studinfo-commons.git</url>
   </scm>
 
