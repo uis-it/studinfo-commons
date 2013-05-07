@@ -63,11 +63,11 @@ public final class Studinfos {
   public static final String PROP_SKIP_SEMESTERS = "skipSemesters";
 
   private static final int YEAR_LEN = 4;
-  private static final String PROP_PRIVATIST = "privatist";
-  private static final String PROP_OBLIGUND = "obligund";
-  private static final String PROP_FORKUNNSKAPER = "forkunnskaper";
-  private static final String PROP_ALTERNATIVES = "alternatives";
-  private static final String PROP_TEXT = "text";
+  public static final String PROP_PRIVATIST = "privatist";
+  public static final String PROP_OBLIGUND = "obligund";
+  public static final String PROP_FORKUNNSKAPER = "forkunnskaper";
+  public static final String PROP_ALTERNATIVES = "alternatives";
+  public static final String PROP_TEXT = "text";
   private static final int DEFAULT_MAX_SEMESTER = 10;
   private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(Studinfos.class);
 
