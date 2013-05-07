@@ -9,7 +9,7 @@
 
   <name>Studinfo Commons</name>
   <description>Common classes for studinfo-solr and studinfo-pdf</description>
-  <url>http://forge.uis.no/projects/studinfo-commons</url>
+  <url>http://source01.uis.no/git/?p=soa-component-studinfo-commons.git</url>
 
   <parent>
     <artifactId>parent-pom</artifactId>
@@ -20,11 +20,10 @@
   <inceptionYear>2013</inceptionYear>
 
   <scm>
-    <connection>scm:git:git://forge.uis.no/studinfo/studinfo-commons.git</connection>
-    <developerConnection>scm:git:ssh://git@forge.uis.no/studinfo/studinfo-commons.git</developerConnection>
-    <url>http://forge.uis.no/projects/studinfo-commons/repository</url>
+    <connection>scm:git:git://source01.uis.no/soa-component-studinfo-commons.git</connection>
+    <developerConnection>scm:git:ssh://git@ource01.uis.no/soa-component-studinfo-commons.git</developerConnection>
+    <url>http://source01.uis.no/git/?p=soa-component-studinfo-commons.git</url>
   </scm>
-  
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
