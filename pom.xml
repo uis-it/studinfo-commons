@@ -53,18 +53,17 @@
           <skipDeploy>true</skipDeploy>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>2.10</version>
+        <configuration>
+          <configLocation>checkstyle/checkstyle.xml</configLocation>
+          <propertyExpansion>basedir=${basedir}</propertyExpansion>
+          <suppressionsLocation>checkstyle/checkstyle-suppressions.xml</suppressionsLocation>
+          <suppressionsFileExpression>checkstyle.suppressions.file</suppressionsFileExpression>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
-    
-  <profiles>
-    <profile>
-      <id>uis</id>
-      <distributionManagement>
-        <site>
-          <id>code01.uis.no</id>
-          <url>dav:https://code01.uis.no/maven-site/studinfo/studinfo-commons/</url>
-        </site>
-      </distributionManagement>
-    </profile>
-  </profiles>
 </project>
