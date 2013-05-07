@@ -48,16 +48,17 @@ public class Utils {
       return Collections.emptyList();
     }
     Collection<?> coll = (Collection<?>)value;
-    if (target == null) {
-      target = new ArrayList<String>(coll.size());
+    Collection<String> t = target;
+    if (t == null) {
+      t = new ArrayList<String>(coll.size());
     }
     for (Object o : coll) {
       String sval = ts == null ? String.valueOf(o) : ts.toString(o);
       if (sval != null) {
-        target.add(sval);
+        t.add(sval);
       }
     }
-    return target;
+    return t;
   }
   
 
