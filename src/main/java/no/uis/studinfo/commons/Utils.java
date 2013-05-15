@@ -20,6 +20,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
+import no.uis.studinfo.convert.StringConverter;
+import no.uis.studinfo.convert.StringConverterUtil;
+
 /**
  * Collection of utility functions. 
  * Bad habit :-(  
@@ -43,7 +46,7 @@ public class Utils {
     return sb.toString();
   }
 
-  public static Collection<String> createStringArray(Object value, Collection<String> target, ToString ts) {
+  public static Collection<String> createStringArray(Object value, Collection<String> target, StringConverter converter) {
     if (!(value instanceof Collection)) {
       return Collections.emptyList();
     }
@@ -53,13 +56,11 @@ public class Utils {
       t = new ArrayList<String>(coll.size());
     }
     for (Object o : coll) {
-      String sval = ts == null ? String.valueOf(o) : ts.toString(o);
+      String sval = converter == null ? StringConverterUtil.convert(o) : converter.convertToString(o);
       if (sval != null) {
         t.add(sval);
       }
     }
     return t;
   }
-  
-
 }
