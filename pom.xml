@@ -8,7 +8,7 @@
 
   <name>Studinfo Commons</name>
   <description>Common classes for studinfo-solr and studinfo-pdf</description>
-  <url>http://source01.uis.no/git/?p=soa-component-studinfo-commons.git</url>
+  <url>http://forge.uis.no/projects/studinfo-commons</url>
 
   <parent>
     <artifactId>parent-pom</artifactId>
@@ -19,9 +19,9 @@
   <inceptionYear>2013</inceptionYear>
 
   <scm>
-    <connection>scm:git:git://source01.uis.no/soa-component-studinfo-commons.git</connection>
-    <developerConnection>scm:git:ssh://git@152.94.3.85/soa-component-studinfo-commons.git</developerConnection>
-    <url>http://source01.uis.no/git/?p=soa-component-studinfo-commons.git</url>
+    <connection>scm:git:git://forge.uis.no/studinfo/studinfo-commons.git</connection>
+    <developerConnection>scm:git:ssh://git@forge.uis.no/studinfo/studinfo-commons.git</developerConnection>
+    <url>http://forge.uis.no/projects/studinfo-commons/repository</url>
   </scm>
 
   <properties>
@@ -42,23 +42,6 @@
     </dependency>
   </dependencies>
   
-  <distributionManagement>
-    <snapshotRepository>
-      <id>source01.uis.no</id>
-      <name>UiS Snapshots Repository</name>
-      <url>http://source01.uis.no/archiva/repository/snapshots/</url>
-    </snapshotRepository>
-    <repository>
-      <id>source01.uis.no</id>
-      <name>UiS Release Repository</name>
-      <url>http://source01.uis.no/archiva/repository/internal/</url>
-    </repository>
-    <site>
-      <id>source01.uis.no</id>
-      <url>dav:https://source01.uis.no/maven-site/${project.groupId}/${project.artifactId}</url>
-    </site>
-  </distributionManagement>
-
   <build>
     <plugins>
       <plugin>
