@@ -28,7 +28,7 @@ public class UndsemesterConverter extends AbstractStringConverter<Undsemester> {
 
   @Override
   protected String convert(Undsemester value) {
-    List<Semester> semesterList = value.getSemester();
+    List<Semester> semesterList = value.getSemesterListe();
     boolean includeNumber = semesterList.size() > 1;
     
     StringBuilder sb = new StringBuilder();

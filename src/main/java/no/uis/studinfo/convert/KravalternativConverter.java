@@ -25,6 +25,6 @@ public class KravalternativConverter extends AbstractStringConverter<Kravalterna
 
   @Override
   protected String convert(Kravalternativ value) {
-    return value.getContent();
+    return value.getValue();
   }
 }

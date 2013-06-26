@@ -74,7 +74,8 @@ public class StudinfosTest {
     
     Studinfos.cleanUtdanningsplan(bdata.getUtdanningsplan(), "B-DATA", new FsYearSemester(2013, FsSemester.VAR), 6);
     
-    assertThat(bdata.getUtdanningsplan().getKravSammensetting().size(), is(3));
+    assertThat(bdata.getUtdanningsplan().getKravSammensettingListe(), is(notNullValue()));
+    assertThat(bdata.getUtdanningsplan().getKravSammensettingListe().size(), is(3));
   }
   
   private class ImportMock extends AbstractStudinfoImport {

@@ -33,11 +33,11 @@ public class DatoperiodeConverter extends AbstractStringConverter<Datoperiode> {
   protected String convert(Datoperiode value) {
     StringBuilder sb = new StringBuilder();
     if (value.isSetFradato()) {
-      sb.append(calendarAdapter.marshal(value.getFradato()));
+      sb.append(calendarAdapter.marshal(value.getFradato().toGregorianCalendar()));
     }
     sb.append(SPACE_HASH_SPACE);
     if (value.isSetTildato()) {
-      sb.append(calendarAdapter.marshal(value.getTildato()));
+      sb.append(calendarAdapter.marshal(value.getTildato().toGregorianCalendar()));
     }
     return sb.toString();
   }

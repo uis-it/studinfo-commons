@@ -101,8 +101,8 @@ public final class Studinfos {
   {
     contextPath.init(programCode);
     try {
-      if (uplan != null && uplan.isSetKravSammensetting()) {
-        cleanKravSammensettings(uplan.getKravSammensetting(), currentSemester, maxSemesters);
+      if (uplan != null && uplan.isSetKravSammensettingListe()) {
+        cleanKravSammensettings(uplan.getKravSammensettingListe(), currentSemester, maxSemesters);
       }
     } finally {
       contextPath.remove();
@@ -177,8 +177,8 @@ public final class Studinfos {
     int nboEmne = 0;
     contextPath.push(ek.getEmnekombinasjonskode());
     int newOffset = offset;
-    if (ek.isSetEmne()) {
-      Iterator<ProgramEmne> iter = ek.getEmne().iterator();
+    if (ek.isSetEmneListe()) {
+      Iterator<ProgramEmne> iter = ek.getEmneListe().iterator();
       while (iter.hasNext()) {
         ProgramEmne emne = iter.next();
         contextPath.push(emne.getEmneid().getEmnekode());
@@ -187,14 +187,14 @@ public final class Studinfos {
         }
         contextPath.pop();
       }
-      nboEmne += ek.getEmne().size();
+      nboEmne += ek.getEmneListe().size();
     }
 
-    if (ek.isSetEmnekombinasjon()) {
+    if (ek.isSetEmnekombinasjonListe()) {
       if (ek.isSetTerminnrRelativStart()) {
         newOffset += ek.getTerminnrRelativStart().intValue() - 1;
       }
-      for (Emnekombinasjon subEk : ek.getEmnekombinasjon()) {
+      for (Emnekombinasjon subEk : ek.getEmnekombinasjonListe()) {
         nboEmne += cleanEmneKombinasjon(subEk, newOffset, skipSemesters);
       }
     }
@@ -230,7 +230,7 @@ public final class Studinfos {
    */
   public static List<String> cleanVurderingsordning(Emne emne, FsYearSemester currentYearSemester) {
     List<String> excludeCodes;
-    if (emne.isSetVurdordning()) {
+    if (emne.isSetVurdordningListe()) {
       // There is no attribute on vurdkombinasjon that tells us if it is compulsory
       if (emne.isSetObligund()) {
         List<Obligoppgave> obligund = emne.getObligund();
@@ -242,7 +242,7 @@ public final class Studinfos {
         excludeCodes = Collections.emptyList();
       }
 
-      Iterator<Vurdordning> iter = emne.getVurdordning().iterator();
+      Iterator<Vurdordning> iter = emne.getVurdordningListe().iterator();
       while (iter.hasNext()) {
         Vurdordning vo = iter.next();
         if (excludeCodes.contains(vo.getVurdordningid())) {
@@ -290,8 +290,8 @@ public final class Studinfos {
       if (!vkomb.isSetBrok()) {
         vkomb.setBrok(DEFAULT_VURDKOMB_BROK);
       }
-      if (vkomb.isSetVurdkombinasjon()) {
-        cleanVurderingsKombinasjon(vkomb.getVurdkombinasjon(), currentYearSemester, excludeCodes);
+      if (vkomb.isSetVurdkombinasjonListe()) {
+        cleanVurderingsKombinasjon(vkomb.getVurdkombinasjonListe(), currentYearSemester, excludeCodes);
       }
     }
   }
@@ -331,7 +331,7 @@ public final class Studinfos {
 
     int maxSemester = 0;
     if (program.isSetUtdanningsplan()) {
-      for (KravSammensetting krav : program.getUtdanningsplan().getKravSammensetting()) {
+      for (KravSammensetting krav : program.getUtdanningsplan().getKravSammensettingListe()) {
         maxSemester = maxSemester(krav.getEmnekombinasjon(), maxSemester);
       }
     }
@@ -397,8 +397,8 @@ public final class Studinfos {
         emne.setApentForTillegg(null);
       }
 
-    } else if (emne.isSetInngarIStudieprogram()) {
-      String value = StringConverterUtil.convert(emne.getInngarIStudieprogram());
+    } else if (emne.isSetInngarIStudieprogramListe()) {
+      String value = StringConverterUtil.convert(emne.getInngarIStudieprogramListe());
       apenFor.put(PROP_TEXT, value);
     }
     return apenFor;
@@ -406,7 +406,7 @@ public final class Studinfos {
 
   private static int maxSemester(Emnekombinasjon emnekombinasjon, int maxSemester) {
     int newMax = maxSemester;
-    for (ProgramEmne emne : emnekombinasjon.getEmne()) {
+    for (ProgramEmne emne : emnekombinasjon.getEmneListe()) {
       int currMax = 0;
 
       if (emne.isSetUndterminTil()) {
@@ -418,8 +418,8 @@ public final class Studinfos {
         newMax = currMax;
       }
     }
-    if (emnekombinasjon.isSetEmnekombinasjon()) {
-      for (Emnekombinasjon ekChild : emnekombinasjon.getEmnekombinasjon()) {
+    if (emnekombinasjon.isSetEmnekombinasjonListe()) {
+      for (Emnekombinasjon ekChild : emnekombinasjon.getEmnekombinasjonListe()) {
         newMax = maxSemester(ekChild, newMax);
       }
     }
