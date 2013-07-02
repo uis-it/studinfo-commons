@@ -24,6 +24,7 @@ import static org.junit.Assume.assumeNotNull;
 import static org.junit.Assume.assumeThat;
 import static org.junit.matchers.JUnitMatchers.hasItems;
 
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 
@@ -83,7 +84,7 @@ public class StudinfosTest {
     protected Reader fsGetStudieprogram(int institution, int faculty, int year, String semester, boolean includeEP, String language) {
       try {
         return new InputStreamReader(testData.getInputStream(), "ISO-8859-1");
-      } catch(Exception e) {
+      } catch(IOException e) {
         assumeNoException(e);
       }
       return null;
@@ -96,6 +97,17 @@ public class StudinfosTest {
     
     @Override
     protected Reader fsGetKurs(int institution, String language) {
+      throw new UnsupportedOperationException();
+    }
+
+    @Override
+    protected Reader fsGetEmne(int institution, String emnekode, String versjonskode, int year, String semester, String language)
+    {
+      throw new UnsupportedOperationException();
+    }
+
+    @Override
+    protected Reader fsGetStudieprogram(String studieprogramkode, int year, String semester, boolean includeEP, String language) {
       throw new UnsupportedOperationException();
     }
   }
