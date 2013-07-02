@@ -8,7 +8,7 @@
 
   <name>Studinfo Commons</name>
   <description>Common classes for studinfo-solr and studinfo-pdf</description>
-  <url>http://forge.uis.no/projects/studinfo-commons</url>
+  <url>https://github.com/uis-it/studinfo-commons</url>
 
   <parent>
     <artifactId>parent-pom</artifactId>
@@ -19,9 +19,9 @@
   <inceptionYear>2013</inceptionYear>
 
   <scm>
-    <connection>scm:git:git://forge.uis.no/studinfo/studinfo-commons.git</connection>
-    <developerConnection>scm:git:ssh://git@forge.uis.no/studinfo/studinfo-commons.git</developerConnection>
-    <url>http://forge.uis.no/projects/studinfo-commons/repository</url>
+    <connection>scm:git:git://github.com/uis-it/studinfo-commons.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/uis-it/studinfo-commons.git</developerConnection>
+    <url>https://github.com/uis-it/studinfo-commons</url>
   </scm>
 
   <properties>
@@ -64,4 +64,8 @@
       </plugin>
     </plugins>
   </build>
+  <issueManagement>
+    <system>Github</system>
+    <url>https://github.com/uis-it/studinfo-commons/issues</url>
+  </issueManagement>
 </project>
