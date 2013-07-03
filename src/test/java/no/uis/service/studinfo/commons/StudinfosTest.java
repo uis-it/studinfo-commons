@@ -16,13 +16,9 @@
 // CHECKSTYLE:OFF
 package no.uis.service.studinfo.commons;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assume.assumeNoException;
-import static org.junit.Assume.assumeNotNull;
-import static org.junit.Assume.assumeThat;
-import static org.junit.matchers.JUnitMatchers.hasItems;
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
+import static org.junit.Assume.*;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -32,8 +28,9 @@ import no.uis.fsws.studinfo.data.FsSemester;
 import no.uis.fsws.studinfo.data.FsStudieinfo;
 import no.uis.fsws.studinfo.data.FsYearSemester;
 import no.uis.fsws.studinfo.data.Studieprogram;
-import no.uis.fsws.studinfo.impl.AbstractStudinfoImport;
+import no.uis.fsws.studinfo.impl.EmptyStudinfoImport;
 import no.uis.fsws.studinfo.impl.SkippingAmpersandParser;
+import no.uis.fsws.studinfo.impl.StudInfoImportImpl;
 import no.uis.studinfo.commons.Studinfos;
 
 import org.junit.Before;
@@ -60,7 +57,7 @@ public class StudinfosTest {
   @SuppressWarnings("unchecked")
   @Test
   public void test() throws Exception {
-    AbstractStudinfoImport importer = new ImportMock();
+    StudInfoImportImpl importer = new ImportMock();
     importer.setTransformerUrl(transformer.getURL());
     importer.setXmlSourceParser(SkippingAmpersandParser.class.getName());
     
@@ -79,7 +76,7 @@ public class StudinfosTest {
     assertThat(bdata.getUtdanningsplan().getKravSammensettingListe().size(), is(3));
   }
   
-  private class ImportMock extends AbstractStudinfoImport {
+  private class ImportMock extends EmptyStudinfoImport {
     @Override
     protected Reader fsGetStudieprogram(int institution, int faculty, int year, String semester, boolean includeEP, String language) {
       try {
