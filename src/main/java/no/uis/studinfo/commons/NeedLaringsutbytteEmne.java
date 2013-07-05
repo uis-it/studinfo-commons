@@ -16,7 +16,8 @@
 
 package no.uis.studinfo.commons;
 
-import no.uis.fsws.studinfo.data.Emne;
+import no.usit.fsws.schemas.studinfo.Emne;
+
 
 /**
  * Filter that accepts only subjects with learning outcomes ('l&aelig;ringsutbytte'). 

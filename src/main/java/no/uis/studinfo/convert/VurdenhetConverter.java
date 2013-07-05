@@ -16,7 +16,8 @@
 
 package no.uis.studinfo.convert;
 
-import no.uis.fsws.studinfo.data.Vurdenhet;
+import no.usit.fsws.schemas.studinfo.Vurdenhet;
+
 
 /**
  * Converts a {@link Vurdenhet} to a string.

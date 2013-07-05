@@ -16,7 +16,8 @@
 
 package no.uis.studinfo.convert;
 
-import no.uis.fsws.studinfo.data.Kravalternativ;
+import no.usit.fsws.schemas.studinfo.Kravalternativ;
+
 
 /**
  * Converts a {@link Kravalternativ} to a string.

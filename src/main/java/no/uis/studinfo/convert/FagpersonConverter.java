@@ -16,7 +16,8 @@
 
 package no.uis.studinfo.convert;
 
-import no.uis.fsws.studinfo.data.Fagperson;
+import no.usit.fsws.schemas.studinfo.Fagperson;
+
 
 /**
  * Converts a {@link Fagperson} to a String.

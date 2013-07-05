@@ -16,7 +16,8 @@
 
 package no.uis.studinfo.convert;
 
-import no.uis.fsws.studinfo.data.Semesterperiode;
+import no.usit.fsws.schemas.studinfo.Semesterperiode;
+
 
 /**
  * Convert a {@link Semesterperiode} to a string.

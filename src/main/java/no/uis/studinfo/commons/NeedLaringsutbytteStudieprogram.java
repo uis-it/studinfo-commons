@@ -16,7 +16,8 @@
 
 package no.uis.studinfo.commons;
 
-import no.uis.fsws.studinfo.data.Studieprogram;
+import no.usit.fsws.schemas.studinfo.Studieprogram;
+
 
 /**
  * Filter that accepts only study programs with learning outcomes ('l&aelig;ringsutbytte'). 

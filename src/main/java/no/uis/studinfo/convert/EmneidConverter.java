@@ -16,7 +16,8 @@
 
 package no.uis.studinfo.convert;
 
-import no.uis.fsws.studinfo.data.Emneid;
+import no.usit.fsws.schemas.studinfo.Emneid;
+
 
 /**
  * Convert an {@link Emneid} to a String.

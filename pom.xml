@@ -26,13 +26,15 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <fswsproxy.version>1.0.0-SNAPSHOT</fswsproxy.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>no.uis.fsws</groupId>
-      <artifactId>studinfo-import</artifactId>
-      <version>3.0.0-SNAPSHOT</version>
+      <artifactId>fsws-proxy</artifactId>
+      <classifier>api</classifier>
+      <version>${fswsproxy.version}</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>

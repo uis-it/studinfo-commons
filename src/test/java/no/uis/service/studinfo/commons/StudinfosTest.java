@@ -25,13 +25,13 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 
 import no.uis.fsws.studinfo.data.FsSemester;
-import no.uis.fsws.studinfo.data.FsStudieinfo;
 import no.uis.fsws.studinfo.data.FsYearSemester;
-import no.uis.fsws.studinfo.data.Studieprogram;
 import no.uis.fsws.studinfo.impl.EmptyStudinfoImport;
 import no.uis.fsws.studinfo.impl.SkippingAmpersandParser;
 import no.uis.fsws.studinfo.impl.StudInfoImportImpl;
 import no.uis.studinfo.commons.Studinfos;
+import no.usit.fsws.schemas.studinfo.FsStudieinfo;
+import no.usit.fsws.schemas.studinfo.Studieprogram;
 
 import org.junit.Before;
 import org.junit.Test;

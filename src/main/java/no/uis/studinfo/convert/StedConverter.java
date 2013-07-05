@@ -16,7 +16,8 @@
 
 package no.uis.studinfo.convert;
 
-import no.uis.fsws.studinfo.data.Sted;
+import no.usit.fsws.schemas.studinfo.Sted;
+
 
 /**
  * Convert a {@link Sted} to a string.

@@ -23,19 +23,19 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import no.uis.fsws.studinfo.data.Emne;
-import no.uis.fsws.studinfo.data.Emnekombinasjon;
 import no.uis.fsws.studinfo.data.FsSemester;
 import no.uis.fsws.studinfo.data.FsYearSemester;
-import no.uis.fsws.studinfo.data.KravSammensetting;
-import no.uis.fsws.studinfo.data.Obligoppgave;
-import no.uis.fsws.studinfo.data.ProgramEmne;
-import no.uis.fsws.studinfo.data.Studieprogram;
-import no.uis.fsws.studinfo.data.Utdanningsplan;
-import no.uis.fsws.studinfo.data.Vurdkombinasjon;
-import no.uis.fsws.studinfo.data.Vurdordning;
 import no.uis.fsws.studinfo.util.ContextPath;
 import no.uis.studinfo.convert.StringConverterUtil;
+import no.usit.fsws.schemas.studinfo.Emne;
+import no.usit.fsws.schemas.studinfo.Emnekombinasjon;
+import no.usit.fsws.schemas.studinfo.KravSammensetting;
+import no.usit.fsws.schemas.studinfo.Obligoppgave;
+import no.usit.fsws.schemas.studinfo.ProgramEmne;
+import no.usit.fsws.schemas.studinfo.Studieprogram;
+import no.usit.fsws.schemas.studinfo.Utdanningsplan;
+import no.usit.fsws.schemas.studinfo.Vurdkombinasjon;
+import no.usit.fsws.schemas.studinfo.Vurdordning;
 
 /**
  * Utility class for study info. 

@@ -16,9 +16,9 @@
 
 package no.uis.studinfo.convert;
 
-import no.uis.fsws.studinfo.data.Datoperiode;
 import no.uis.fsws.studinfo.util.CalendarAdapter;
 import no.uis.fsws.studinfo.util.CalendarNorwegianAdapter;
+import no.usit.fsws.schemas.studinfo.Datoperiode;
 
 /**
  * Converts a {@link Datoperiode} to a string. 

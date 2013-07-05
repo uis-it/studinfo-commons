@@ -16,7 +16,8 @@
 
 package no.uis.studinfo.convert;
 
-import no.uis.fsws.studinfo.data.InngarIStudieprogram;
+import no.usit.fsws.schemas.studinfo.InngarIStudieprogram;
+
 
 /**
  * Converts a {@link InngarIStudieprogram} to a string.

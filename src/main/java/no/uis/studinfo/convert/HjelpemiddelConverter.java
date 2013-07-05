@@ -16,7 +16,8 @@
 
 package no.uis.studinfo.convert;
 
-import no.uis.fsws.studinfo.data.Hjelpemiddel;
+import no.usit.fsws.schemas.studinfo.Hjelpemiddel;
+
 
 /**
  * Convert a {@link Hjelpemiddel} to a String.

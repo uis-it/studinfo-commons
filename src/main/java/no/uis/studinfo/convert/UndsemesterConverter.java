@@ -18,8 +18,9 @@ package no.uis.studinfo.convert;
 
 import java.util.List;
 
-import no.uis.fsws.studinfo.data.Semester;
-import no.uis.fsws.studinfo.data.Undsemester;
+import no.usit.fsws.schemas.studinfo.Semester;
+import no.usit.fsws.schemas.studinfo.Undsemester;
+
 
 /**
  * Converts a {@link Undsemester} to a string.

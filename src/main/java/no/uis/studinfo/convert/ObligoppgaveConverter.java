@@ -16,7 +16,8 @@
 
 package no.uis.studinfo.convert;
 
-import no.uis.fsws.studinfo.data.Obligoppgave;
+import no.usit.fsws.schemas.studinfo.Obligoppgave;
+
 
 /**
  * Converts a {@link Obligoppgave} to a string.
