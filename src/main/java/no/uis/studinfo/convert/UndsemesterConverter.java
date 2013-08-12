@@ -16,11 +16,11 @@
 
 package no.uis.studinfo.convert;
 
+import java.util.Collections;
 import java.util.List;
 
 import no.usit.fsws.schemas.studinfo.Semester;
 import no.usit.fsws.schemas.studinfo.Undsemester;
-
 
 /**
  * Converts a {@link Undsemester} to a string.
@@ -29,11 +29,13 @@ public class UndsemesterConverter extends AbstractStringConverter<Undsemester> {
 
   @Override
   protected String convert(Undsemester value) {
-    List<Semester> semesterList = value.getSemesterListe();
+    List<Semester> semesterList = value.isSetSemesterListe() && value.getSemesterListe().isSetSemester() 
+        ? value.getSemesterListe().getSemester() : Collections.<Semester>emptyList();
+        
     boolean includeNumber = semesterList.size() > 1;
-    
+
     StringBuilder sb = new StringBuilder();
-    
+
     for (Semester semester : semesterList) {
       if (sb.length() > 0) {
         sb.append(", "); //$NON-NLS-1$
@@ -63,7 +65,7 @@ public class UndsemesterConverter extends AbstractStringConverter<Undsemester> {
     if (hasValidPeriod) {
       sb.append(')');
     }
-    
+
     return sb.toString();
   }
 }

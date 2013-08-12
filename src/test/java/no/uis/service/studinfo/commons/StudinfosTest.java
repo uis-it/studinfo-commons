@@ -24,11 +24,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 
+import no.uis.fsws.proxy.EmptyStudinfoImport;
+import no.uis.fsws.proxy.SkippingAmpersandParser;
+import no.uis.fsws.proxy.StudInfoImportImpl;
 import no.uis.fsws.studinfo.data.FsSemester;
 import no.uis.fsws.studinfo.data.FsYearSemester;
-import no.uis.fsws.studinfo.impl.EmptyStudinfoImport;
-import no.uis.fsws.studinfo.impl.SkippingAmpersandParser;
-import no.uis.fsws.studinfo.impl.StudInfoImportImpl;
 import no.uis.studinfo.commons.Studinfos;
 import no.usit.fsws.schemas.studinfo.FsStudieinfo;
 import no.usit.fsws.schemas.studinfo.Studieprogram;
@@ -72,8 +72,9 @@ public class StudinfosTest {
     
     Studinfos.cleanUtdanningsplan(bdata.getUtdanningsplan(), "B-DATA", new FsYearSemester(2013, FsSemester.VAR), 6);
     
-    assertThat(bdata.getUtdanningsplan().getKravSammensettingListe(), is(notNullValue()));
-    assertThat(bdata.getUtdanningsplan().getKravSammensettingListe().size(), is(3));
+    assertThat(bdata.getUtdanningsplan().isSetKravSammensettingListe(), is(true));
+    assertThat(bdata.getUtdanningsplan().getKravSammensettingListe().isSetKravSammensetting(), is(true));
+    assertThat(bdata.getUtdanningsplan().getKravSammensettingListe().getKravSammensetting().size(), is(3));
   }
   
   private class ImportMock extends EmptyStudinfoImport {

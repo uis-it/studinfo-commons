@@ -101,8 +101,8 @@ public final class Studinfos {
   {
     contextPath.init(programCode);
     try {
-      if (uplan != null && uplan.isSetKravSammensettingListe()) {
-        cleanKravSammensettings(uplan.getKravSammensettingListe(), currentSemester, maxSemesters);
+      if (uplan != null && uplan.isSetKravSammensettingListe() && uplan.getKravSammensettingListe().isSetKravSammensetting()) {
+        cleanKravSammensettings(uplan.getKravSammensettingListe().getKravSammensetting(), currentSemester, maxSemesters);
       }
     } finally {
       contextPath.remove();
@@ -177,8 +177,9 @@ public final class Studinfos {
     int nboEmne = 0;
     contextPath.push(ek.getEmnekombinasjonskode());
     int newOffset = offset;
-    if (ek.isSetEmneListe()) {
-      Iterator<ProgramEmne> iter = ek.getEmneListe().iterator();
+    if (ek.isSetEmneListe() && ek.getEmneListe().isSetEmne()) {
+      Iterator<ProgramEmne> iter = ek.getEmneListe().getEmne().iterator();
+      int nEmne = 0;
       while (iter.hasNext()) {
         ProgramEmne emne = iter.next();
         contextPath.push(emne.getEmneid().getEmnekode());
@@ -186,15 +187,16 @@ public final class Studinfos {
           iter.remove();
         }
         contextPath.pop();
+        nEmne++;
       }
-      nboEmne += ek.getEmneListe().size();
+      nboEmne += nEmne;
     }
 
-    if (ek.isSetEmnekombinasjonListe()) {
+    if (ek.isSetEmnekombinasjonListe() && ek.getEmnekombinasjonListe().isSetEmnekombinasjon()) {
       if (ek.isSetTerminnrRelativStart()) {
         newOffset += ek.getTerminnrRelativStart().intValue() - 1;
       }
-      for (Emnekombinasjon subEk : ek.getEmnekombinasjonListe()) {
+      for (Emnekombinasjon subEk : ek.getEmnekombinasjonListe().getEmnekombinasjon()) {
         nboEmne += cleanEmneKombinasjon(subEk, newOffset, skipSemesters);
       }
     }
@@ -232,8 +234,8 @@ public final class Studinfos {
     List<String> excludeCodes;
     if (emne.isSetVurdordningListe()) {
       // There is no attribute on vurdkombinasjon that tells us if it is compulsory
-      if (emne.isSetObligund()) {
-        List<Obligoppgave> obligund = emne.getObligund();
+      if (emne.isSetObligund() && emne.getObligund().isSetObligoppgave()) {
+        List<Obligoppgave> obligund = emne.getObligund().getObligoppgave();
         excludeCodes = new ArrayList<String>(obligund.size());
         for (Obligoppgave oo : obligund) {
           excludeCodes.add(oo.getNr());
@@ -242,14 +244,16 @@ public final class Studinfos {
         excludeCodes = Collections.emptyList();
       }
 
-      Iterator<Vurdordning> iter = emne.getVurdordningListe().iterator();
-      while (iter.hasNext()) {
-        Vurdordning vo = iter.next();
-        if (excludeCodes.contains(vo.getVurdordningid())) {
-          iter.remove();
-        } else if (vo.isSetVurdkombinasjon()) {
-          Vurdkombinasjon vkomb = vo.getVurdkombinasjon();
-          cleanVurderingskombinasjon(vo, vkomb, currentYearSemester, excludeCodes);
+      if (emne.isSetVurdordningListe() && emne.getVurdordningListe().isSetVurdordning()) {
+        Iterator<Vurdordning> iter = emne.getVurdordningListe().getVurdordning().iterator();
+        while (iter.hasNext()) {
+          Vurdordning vo = iter.next();
+          if (excludeCodes.contains(vo.getVurdordningid())) {
+            iter.remove();
+          } else if (vo.isSetVurdkombinasjon()) {
+            Vurdkombinasjon vkomb = vo.getVurdkombinasjon();
+            cleanVurderingskombinasjon(vo, vkomb, currentYearSemester, excludeCodes);
+          }
         }
       }
     } else {
@@ -290,8 +294,8 @@ public final class Studinfos {
       if (!vkomb.isSetBrok()) {
         vkomb.setBrok(DEFAULT_VURDKOMB_BROK);
       }
-      if (vkomb.isSetVurdkombinasjonListe()) {
-        cleanVurderingsKombinasjon(vkomb.getVurdkombinasjonListe(), currentYearSemester, excludeCodes);
+      if (vkomb.isSetVurdkombinasjonListe() && vkomb.getVurdkombinasjonListe().isSetVurdkombinasjon()) {
+        cleanVurderingsKombinasjon(vkomb.getVurdkombinasjonListe().getVurdkombinasjon(), currentYearSemester, excludeCodes);
       }
     }
   }
@@ -330,8 +334,8 @@ public final class Studinfos {
     }
 
     int maxSemester = 0;
-    if (program.isSetUtdanningsplan()) {
-      for (KravSammensetting krav : program.getUtdanningsplan().getKravSammensettingListe()) {
+    if (program.isSetUtdanningsplan() && program.getUtdanningsplan().isSetKravSammensettingListe() && program.getUtdanningsplan().getKravSammensettingListe().isSetKravSammensetting()) {
+      for (KravSammensetting krav : program.getUtdanningsplan().getKravSammensettingListe().getKravSammensetting()) {
         maxSemester = maxSemester(krav.getEmnekombinasjon(), maxSemester);
       }
     }
@@ -406,20 +410,22 @@ public final class Studinfos {
 
   private static int maxSemester(Emnekombinasjon emnekombinasjon, int maxSemester) {
     int newMax = maxSemester;
-    for (ProgramEmne emne : emnekombinasjon.getEmneListe()) {
-      int currMax = 0;
-
-      if (emne.isSetUndterminTil()) {
-        currMax = emne.getUndterminTil().intValue();
-      } else if (emne.isSetUndterminFra()) {
-        currMax = emne.getUndterminFra().intValue();
-      }
-      if (currMax > newMax) {
-        newMax = currMax;
+    if (emnekombinasjon.isSetEmneListe() && emnekombinasjon.getEmneListe().isSetEmne()) {
+      for (ProgramEmne emne : emnekombinasjon.getEmneListe().getEmne()) {
+        int currMax = 0;
+  
+        if (emne.isSetUndterminTil()) {
+          currMax = emne.getUndterminTil().intValue();
+        } else if (emne.isSetUndterminFra()) {
+          currMax = emne.getUndterminFra().intValue();
+        }
+        if (currMax > newMax) {
+          newMax = currMax;
+        }
       }
     }
-    if (emnekombinasjon.isSetEmnekombinasjonListe()) {
-      for (Emnekombinasjon ekChild : emnekombinasjon.getEmnekombinasjonListe()) {
+    if (emnekombinasjon.isSetEmnekombinasjonListe() && emnekombinasjon.getEmnekombinasjonListe().isSetEmnekombinasjon()) {
+      for (Emnekombinasjon ekChild : emnekombinasjon.getEmnekombinasjonListe().getEmnekombinasjon()) {
         newMax = maxSemester(ekChild, newMax);
       }
     }
