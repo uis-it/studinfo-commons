@@ -334,7 +334,9 @@ public final class Studinfos {
     }
 
     int maxSemester = 0;
-    if (program.isSetUtdanningsplan() && program.getUtdanningsplan().isSetKravSammensettingListe() && program.getUtdanningsplan().getKravSammensettingListe().isSetKravSammensetting()) {
+    if (program.isSetUtdanningsplan() && program.getUtdanningsplan().isSetKravSammensettingListe()
+      && program.getUtdanningsplan().getKravSammensettingListe().isSetKravSammensetting())
+    {
       for (KravSammensetting krav : program.getUtdanningsplan().getKravSammensettingListe().getKravSammensetting()) {
         maxSemester = maxSemester(krav.getEmnekombinasjon(), maxSemester);
       }

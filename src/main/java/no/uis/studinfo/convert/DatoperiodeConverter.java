@@ -16,8 +16,6 @@
 
 package no.uis.studinfo.convert;
 
-import no.uis.fsws.studinfo.util.CalendarAdapter;
-import no.uis.fsws.studinfo.util.CalendarNorwegianAdapter;
 import no.usit.fsws.schemas.studinfo.Datoperiode;
 
 /**
@@ -27,17 +25,16 @@ import no.usit.fsws.schemas.studinfo.Datoperiode;
 public class DatoperiodeConverter extends AbstractStringConverter<Datoperiode> {
 
   private static final String SPACE_HASH_SPACE = " - ";
-  private CalendarAdapter calendarAdapter = new CalendarNorwegianAdapter();
 
   @Override
   protected String convert(Datoperiode value) {
     StringBuilder sb = new StringBuilder();
     if (value.isSetFradato()) {
-      sb.append(calendarAdapter.marshal(value.getFradato().toGregorianCalendar()));
+      sb.append(value.getFradato().toXMLFormat());
     }
     sb.append(SPACE_HASH_SPACE);
     if (value.isSetTildato()) {
-      sb.append(calendarAdapter.marshal(value.getTildato().toGregorianCalendar()));
+      sb.append(value.getTildato().toXMLFormat());
     }
     return sb.toString();
   }
