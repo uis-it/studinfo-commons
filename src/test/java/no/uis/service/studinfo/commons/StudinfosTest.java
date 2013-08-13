@@ -48,10 +48,10 @@ public class StudinfosTest {
   @Before
   public void init() throws Exception {
     testData = loader.getResource("file:src/test/data/b-data-future.xml");
-    assumeNotNull(testData);
+    assumeThat("test data exists", testData.exists(), is(true));
     
-    transformer = loader.getResource("classpath:/fspreprocess.xsl");
-    assumeNotNull(transformer);
+    transformer = loader.getResource("classpath:/fspreprocess-uis.xsl");
+    assumeThat("transformer exists", transformer.exists(), is(true));
   }
   
   @SuppressWarnings("unchecked")
